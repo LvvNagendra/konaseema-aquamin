@@ -39,6 +39,10 @@ python -m http.server 8000
 ```
 Open http://localhost:8000
 
+## Updating the live site
+After changing CSS/JS files, change the `?v=...` number on the `<link>`/`<script>` tags at the end of `index.html`
+so visitors' browsers load the new files immediately (GitHub Pages caches files for ~10 minutes).
+
 ## Deploy
 Upload the whole `konaseema-aquamin-site` folder to Netlify, Vercel, GitHub Pages or any web host.
 
