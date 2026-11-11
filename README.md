@@ -17,12 +17,10 @@ Front-end only, static website. Works on desktop, tablet and mobile. No build st
 - 2-step enquiry form (enquiry type, name, mobile with validation, village/district, species, acres, DOC, pond problems, product). It opens WhatsApp with all details filled in.
 
 ## WhatsApp numbers & group
-Every "WhatsApp" button opens a chooser showing the visitor's message with three numbers
-(+91 99665 90280, +91 96667 54456, +91 99480 43969) and a "Share in our WhatsApp group" button
-(copies the message and opens https://chat.whatsapp.com/ISWdOqMF14p33Z9w6kcQQ2).
-Change them in `WA_NUMBERS` / `WA_GROUP` at the top of `app.js`.
-Note: WhatsApp links can only open one chat at a time and cannot post into a group automatically —
-delivering every enquiry to all numbers automatically needs a server with the WhatsApp Business API.
+Numbers shown on the site (in this order): 1) +91 96667 54456, 2) +91 99480 43969, 3) +91 99665 90280 — for calls.
+All website messages (enquiry form, product buttons, calculator, reviews, floating button) go to the WhatsApp GROUP only:
+the popup copies the message and opens https://chat.whatsapp.com/ISWdOqMF14p33Z9w6kcQQ2, where the visitor pastes and sends.
+Change them in `WA_NUMBERS` / `WA_GROUP` at the top of `app.js` and in `index.html`.
 
 ## Files
 | File | What to edit |

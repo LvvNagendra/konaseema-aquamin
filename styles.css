@@ -658,3 +658,13 @@ a.contact-item:hover{background:rgba(255,255,255,.12)}
 .wa-group b{display:block;font:800 15.5px var(--font-head)}
 .wa-group small{display:block;font-size:12.5px;color:#bcd0dd;margin-top:2px}
 @media (max-width:640px){.wa-head{padding:22px 18px 16px}.wa-body{padding:18px 16px calc(22px + env(safe-area-inset-bottom))}}
+
+/* group-only WhatsApp popup */
+.phone-list a{display:flex;align-items:center;gap:10px}
+.phone-list i{font-style:normal;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:var(--gold-l);color:var(--navy);font:800 12px 'Manrope',sans-serif;flex:none}
+.wa-steps{margin:2px 0;padding:0;list-style:none;counter-reset:s;display:grid;gap:8px}
+.wa-steps li{counter-increment:s;position:relative;padding-left:34px;font-size:14px;line-height:1.45;color:var(--ink)}
+.wa-steps li::before{content:counter(s);position:absolute;left:0;top:-1px;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:#e3f5ea;color:#128c4a;font:800 12.5px 'Manrope',sans-serif}
+.wa-group{background:linear-gradient(135deg,#1fbf5b,#0b8f4d);box-shadow:0 12px 26px rgba(37,211,102,.32);padding:15px 16px}
+.wa-group:hover{background:linear-gradient(135deg,#1aa851,#097a41)}
+.wa-group small{color:#e2f7ea}

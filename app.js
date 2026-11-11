@@ -1,17 +1,17 @@
 (() => {
   'use strict';
-  /* ---- WhatsApp contacts: every enquiry can go to these numbers + the group ---- */
+  /* ---- Contact numbers (shown in this order) — website messages go to the WhatsApp group only ---- */
   const WA_NUMBERS = [
-    { num: '919966590280', label: '+91 99665 90280' },
     { num: '919666754456', label: '+91 96667 54456' },
-    { num: '919948043969', label: '+91 99480 43969' }
+    { num: '919948043969', label: '+91 99480 43969' },
+    { num: '919966590280', label: '+91 99665 90280' }
   ];
   const WA_GROUP = 'https://chat.whatsapp.com/ISWdOqMF14p33Z9w6kcQQ2';
   const WA = WA_NUMBERS[0].num;
   const $ = (s, el = document) => el.querySelector(s);
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
   const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-  const waLink = text => `https://wa.me/${WA}?text=${encodeURIComponent(text)}`;
+  const waLink = text => `${WA_GROUP}?text=${encodeURIComponent(text)}`;   // group link; the tap opens the copy-and-send popup
   const byId = id => PRODUCTS.find(p => p.id === id);
 
   PRODUCTS.sort((p, q) => (q.range ? 1 : 0) - (p.range ? 1 : 0));
@@ -139,7 +139,7 @@
         <circle cx="${ex - er - 3}" cy="${ey + er * 0.6}" r="1.6" fill="#fff" opacity=".6"/>
         ${bens.map((b, i) => { const ty = yw + 15 + i * 12; return `<circle cx="${bx}" cy="${ty - 2}" r="3.6" fill="#fff"/><path d="M${bx - 1.7} ${ty - 2}l1.2 1.2 2.3-2.4" stroke="${c}" stroke-width="1.1" fill="none" stroke-linecap="round"/><text x="${bx + 6}" y="${ty}" class="pk-ben" ${fit(b.length, 5, bMax)}>${esc(b)}</text>`; }).join('')}
         ${net ? `<rect x="${nbx}" y="${nby}" width="${netBoxW}" height="${netBoxH}" rx="4" fill="#fff"/><text x="${nbx + netBoxW / 2}" y="${nby + 6.5}" text-anchor="middle" class="pk-nw">Net ${/l/i.test(net) ? 'Volume' : 'Weight'}</text><text x="${nbx + netBoxW / 2}" y="${nby + 15.5}" text-anchor="middle" class="pk-nv" ${fit(net.length, 8, netBoxW - 4)}>${esc(net)}</text>` : ''}
-        <text x="${x + 7}" y="${B - 15}" class="pk-phone">☎ 99665 90280</text>
+        <text x="${x + 7}" y="${B - 15}" class="pk-phone">☎ 96667 54456</text>
         <text x="${x + 7}" y="${B - 8.5}" class="pk-addr" ${fit(22, 4.3, nbx - x - 10)}>Lingampalli, Hyderabad</text>
         <rect x="0" y="0" width="200" height="250" fill="url(#${id}g)"/>
       </g>
@@ -405,50 +405,43 @@
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModals(); });
 
   /* =========================================================
-     WhatsApp chooser: send the same message to any of the 3 numbers, or share it in the group
+     WhatsApp: every website message is sent to our WhatsApp GROUP only.
+     (WhatsApp cannot pre-fill a group message, so we copy it and open the group.)
      ========================================================= */
   const waModal = $('#waModal');
   let waText = '';
   function openWaChooser(text) {
     waText = text || `${t('wa.hello')},\nI would like to know more about your products.`;
     $('#waPreview').textContent = waText;
-    $('#waNumbers').innerHTML = WA_NUMBERS.map((n, i) => `
-      <a class="wa-choice" href="https://wa.me/${n.num}?text=${encodeURIComponent(waText)}" target="_blank" rel="noopener" data-wa-choice>
-        <span class="wa-choice-ic"><svg viewBox="0 0 32 32" aria-hidden="true"><use href="#wa-icon"/></svg></span>
-        <span class="wa-choice-txt"><b>${esc(n.label)}</b><small>WhatsApp ${i + 1}</small></span>
-        <span class="wa-choice-go" aria-hidden="true">→</span>
-      </a>`).join('');
     $('#waGroupNote').textContent = t('wa.groupNote');
+    $('#waCopyBtn').textContent = t('wa.copy');
     closeModals();
     openModal(waModal);
   }
-  waModal.addEventListener('click', e => {
-    const c = e.target.closest('[data-wa-choice]');
-    if (c) { c.classList.add('done'); c.querySelector('.wa-choice-go').textContent = '✓ ' + t('wa.opened'); }
-  });
-  async function copyText(text) {
-    try { await navigator.clipboard.writeText(text); return true; } catch { /* fallback below */ }
+  function copySync(text) {                      // runs inside the tap, so phones allow it
     const ta = document.createElement('textarea'); ta.value = text; ta.setAttribute('readonly', '');
-    ta.style.cssText = 'position:fixed;opacity:0'; document.body.appendChild(ta); ta.select();
+    ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0;font-size:16px';
+    waModal.appendChild(ta); ta.focus(); ta.select(); ta.setSelectionRange(0, text.length);
     let ok = false; try { ok = document.execCommand('copy'); } catch { ok = false; }
-    ta.remove(); return ok;
+    ta.remove();
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).catch(() => {});
+    return ok || !!(navigator.clipboard && window.isSecureContext);
   }
-  $('#waGroupBtn').addEventListener('click', async () => {
-    const win = window.open(WA_GROUP, '_blank', 'noopener');   // open first so pop-up blockers allow it
-    const ok = await copyText(waText);
+  $('#waGroupBtn').addEventListener('click', () => {
+    const ok = copySync(waText);
     $('#waGroupNote').textContent = ok ? '✓ ' + t('wa.copied') : t('wa.groupNote');
-    if (!win) location.href = WA_GROUP;
+    const win = window.open(WA_GROUP, '_blank', 'noopener');
+    if (!win) setTimeout(() => { location.href = WA_GROUP; }, 600);
   });
-  $('#waCopyBtn').addEventListener('click', async () => {
-    const ok = await copyText(waText);
-    $('#waCopyBtn').textContent = ok ? '✓ ' + t('wa.copiedShort') : t('wa.copy');
+  $('#waCopyBtn').addEventListener('click', () => {
+    $('#waCopyBtn').textContent = copySync(waText) ? '✓ ' + t('wa.copiedShort') : t('wa.copy');
   });
-  // Every WhatsApp link on the page opens the chooser instead of a single number
+  // Every WhatsApp button on the page opens the group popup
   document.addEventListener('click', e => {
-    const a = e.target.closest('a[href^="https://wa.me/"]');
-    if (!a || a.hasAttribute('data-wa-choice')) return;
+    const a = e.target.closest('a[href^="https://wa.me/"], a[data-wa], a[href*="chat.whatsapp.com"][href*="?text="]');
+    if (!a) return;
     e.preventDefault();
-    const q = a.getAttribute('href').split('?text=')[1];
+    const q = (a.getAttribute('href') || '').split('?text=')[1];
     openWaChooser(q ? decodeURIComponent(q) : '');
   }, true);
 
