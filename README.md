@@ -18,8 +18,9 @@ Front-end only, static website. Works on desktop, tablet and mobile. No build st
 
 ## WhatsApp numbers & group
 Numbers shown on the site (in this order): 1) +91 96667 54456, 2) +91 99480 43969, 3) +91 99665 90280 — for calls.
-All website messages (enquiry form, product buttons, calculator, reviews, floating button) go to the WhatsApp GROUP only:
-the popup copies the message and opens https://chat.whatsapp.com/ISWdOqMF14p33Z9w6kcQQ2, where the visitor pastes and sends.
+Every WhatsApp button (enquiry form, product buttons, calculator, reviews, floating button) opens a WhatsApp chat
+to number 1 (+91 96667 54456) with the message already typed — the visitor only taps Send.
+The "Join our farmers group" links (contact section, footer) open https://chat.whatsapp.com/ISWdOqMF14p33Z9w6kcQQ2.
 Change them in `WA_NUMBERS` / `WA_GROUP` at the top of `app.js` and in `index.html`.
 
 ## Files

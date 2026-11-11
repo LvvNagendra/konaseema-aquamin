@@ -1,6 +1,6 @@
 (() => {
   'use strict';
-  /* ---- Contact numbers (shown in this order) — website messages go to the WhatsApp group only ---- */
+  /* ---- Contact numbers (shown in this order). Website WhatsApp messages go to number 1. ---- */
   const WA_NUMBERS = [
     { num: '919666754456', label: '+91 96667 54456' },
     { num: '919948043969', label: '+91 99480 43969' },
@@ -11,7 +11,7 @@
   const $ = (s, el = document) => el.querySelector(s);
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
   const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-  const waLink = text => `${WA_GROUP}?text=${encodeURIComponent(text)}`;   // group link; the tap opens the copy-and-send popup
+  const waLink = text => `https://wa.me/${WA}?text=${encodeURIComponent(text)}`;   // opens a chat to WhatsApp number 1 with the message typed in
   const byId = id => PRODUCTS.find(p => p.id === id);
 
   PRODUCTS.sort((p, q) => (q.range ? 1 : 0) - (p.range ? 1 : 0));
@@ -404,48 +404,13 @@
   });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModals(); });
 
-  /* =========================================================
-     WhatsApp: every website message is sent to our WhatsApp GROUP only.
-     (WhatsApp cannot pre-fill a group message, so we copy it and open the group.)
-     ========================================================= */
-  const waModal = $('#waModal');
-  let waText = '';
-  function openWaChooser(text) {
-    waText = text || `${t('wa.hello')},\nI would like to know more about your products.`;
-    $('#waPreview').textContent = waText;
-    $('#waGroupNote').textContent = t('wa.groupNote');
-    $('#waCopyBtn').textContent = t('wa.copy');
-    closeModals();
-    openModal(waModal);
-  }
-  function copySync(text) {                      // runs inside the tap, so phones allow it
-    const ta = document.createElement('textarea'); ta.value = text; ta.setAttribute('readonly', '');
-    ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0;font-size:16px';
-    waModal.appendChild(ta); ta.focus(); ta.select(); ta.setSelectionRange(0, text.length);
-    let ok = false; try { ok = document.execCommand('copy'); } catch { ok = false; }
-    ta.remove();
-    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).catch(() => {});
-    return ok || !!(navigator.clipboard && window.isSecureContext);
-  }
-  $('#waGroupBtn').addEventListener('click', () => {
-    const ok = copySync(waText);
-    $('#waGroupNote').textContent = ok ? '✓ ' + t('wa.copied') : t('wa.groupNote');
-    // open the group in a new tab; only if the browser blocked it, open it in this tab instead
-    const win = window.open(WA_GROUP, '_blank');
+  /* ---------- WhatsApp: open a chat to number 1 with the message already typed ---------- */
+  function sendWhatsApp(text) {
+    const url = waLink(text || `${t('wa.hello')},\nI would like to know more about your products.`);
+    const win = window.open(url, '_blank');
     if (win) { try { win.opener = null; } catch { /* cross-origin */ } }
-    else location.href = WA_GROUP;
-  });
-  $('#waCopyBtn').addEventListener('click', () => {
-    $('#waCopyBtn').textContent = copySync(waText) ? '✓ ' + t('wa.copiedShort') : t('wa.copy');
-  });
-  // Every WhatsApp button on the page opens the group popup
-  document.addEventListener('click', e => {
-    const a = e.target.closest('a[href^="https://wa.me/"], a[data-wa], a[href*="chat.whatsapp.com"][href*="?text="]');
-    if (!a) return;
-    e.preventDefault();
-    const q = (a.getAttribute('href') || '').split('?text=')[1];
-    openWaChooser(q ? decodeURIComponent(q) : '');
-  }, true);
+    else location.href = url;                       // pop-up blocked: open in this tab
+  }
 
   /* =========================================================
      Enquiry form (2 steps -> WhatsApp)
@@ -489,7 +454,7 @@
       F.message.value.trim() && `Message: ${F.message.value.trim()}`,
       `Preferred language: ${lang === 'te' ? 'Telugu' : 'English'}`
     ].filter(Boolean);
-    openWaChooser(lines.join('\n'));
+    sendWhatsApp(lines.join('\n'));
     const ok = $('#formOk'); ok.textContent = '✓ ' + t('form.ok'); ok.hidden = false;
   });
   $$('[data-type-link]').forEach(a => a.addEventListener('click', () => {
@@ -507,7 +472,8 @@
     const msg = [`*New farmer review — website*`, `Name: ${R.name.value.trim()}`, R.place.value.trim() && `Place: ${R.place.value.trim()}`,
       `Rating: ${'★'.repeat(+R.rating.value)} (${R.rating.value}/5)`, R.product.value && `Product: ${R.product.value}`, `Review: ${R.text.value.trim()}`].filter(Boolean).join('\n');
     e.target.reset();
-    openWaChooser(msg);
+    closeModals();
+    sendWhatsApp(msg);
   });
 
   /* =========================================================

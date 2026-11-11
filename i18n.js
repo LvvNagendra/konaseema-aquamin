@@ -70,7 +70,7 @@ const I18N = {
 
     'contact.kicker': "LET'S TALK AQUACULTURE",
     'contact.title': 'Have a pond<br><em>to take care of?</em>',
-    'contact.desc': 'Ask about prices, dosage, dealership or bulk orders. Fill the form and send it to our WhatsApp group, or call any of our numbers.',
+    'contact.desc': 'Ask about prices, dosage, dealership or bulk orders. Fill the form — WhatsApp opens with all your details, just tap Send. Or call any of our numbers.',
     'contact.phone': 'PHONE / WHATSAPP', 'contact.office': 'OFFICE', 'contact.hours': 'WORKING HOURS', 'contact.hoursv': 'Mon – Sat · 9:00 AM – 7:00 PM',
 
     'form.title': 'Send an enquiry', 'form.step1': 'Your details', 'form.step2': 'Pond details',
@@ -82,11 +82,11 @@ const I18N = {
     'form.message': 'Message', 'form.msgph': 'Anything else we should know…',
     'form.next': 'Next: pond details', 'form.back': 'Back', 'form.send': 'Send on WhatsApp', 'form.call': 'Or call us now',
     'err.name': 'Please enter your name.', 'err.phone': 'Please enter a valid 10-digit mobile number.',
-    'form.ok': 'Your enquiry is ready — send it to our WhatsApp group.',
-    'form.privacy': 'Your message is shared in the VM Aqua Solutions WhatsApp group.',
+    'form.ok': 'WhatsApp opened with your enquiry — just tap Send.',
+    'form.privacy': 'Your enquiry goes to VM Aqua Solutions on WhatsApp (+91 96667 54456).',
 
     'rv.title': 'Share your experience', 'rv.name': 'Your name', 'rv.place': 'Village / District', 'rv.rating': 'Your rating',
-    'rv.product': 'Product used', 'rv.text': 'Your review', 'rv.send': 'Send review to WhatsApp group',
+    'rv.product': 'Product used', 'rv.text': 'Your review', 'rv.send': 'Send review on WhatsApp',
     'rv.note': 'Reviews are checked by our team before they appear on the website.',
 
     'how.kicker': 'HOW IT WORKS',
@@ -100,13 +100,6 @@ const I18N = {
     'footer.tag': 'Quality aquaculture inputs for the farmers of coastal Andhra Pradesh.',
     'footer.products': 'Products', 'footer.links': 'Quick links', 'footer.contact': 'Contact',
     'footer.note': 'Dosages are general guidance — consult an aqua consultant for your pond.',
-    'wa.title': 'Send your message to our WhatsApp group', 'wa.sub': 'All website messages are answered in our VM Aqua Solutions WhatsApp group.',
-    'wa.preview': 'Your message', 'wa.copy': 'Copy', 'wa.copiedShort': 'Copied',
-    'wa.s1': 'Tap the green button below — your message is copied.',
-    'wa.s2': 'Our WhatsApp group opens (tap “Join” the first time).',
-    'wa.s3': 'Tap the message box, choose “Paste”, then Send.',
-    'wa.group': 'Send to our WhatsApp group', 'wa.groupNote': 'Copies your message and opens the group.',
-    'wa.copied': 'Message copied! Paste it in the group and send.',
     'contact.group': 'WHATSAPP GROUP', 'contact.groupd': 'Join our farmers group',
     'wa.hello': 'Hello VM Aqua Solutions'
   },
@@ -178,7 +171,7 @@ const I18N = {
 
     'contact.kicker': 'ఆక్వా గురించి మాట్లాడుకుందాం',
     'contact.title': 'మీ చెరువు<br><em>సంరక్షణ మాకు వదిలేయండి</em>',
-    'contact.desc': 'ధరలు, మోతాదు, డీలర్‌షిప్ లేదా బల్క్ ఆర్డర్ల గురించి అడగండి. ఫారం నింపి మా వాట్సాప్ గ్రూప్‌కు పంపండి, లేదా మా నంబర్లకు కాల్ చేయండి.',
+    'contact.desc': 'ధరలు, మోతాదు, డీలర్‌షిప్ లేదా బల్క్ ఆర్డర్ల గురించి అడగండి. ఫారం నింపండి — మీ వివరాలతో వాట్సాప్ తెరుచుకుంటుంది, Send నొక్కండి. లేదా మా నంబర్లకు కాల్ చేయండి.',
     'contact.phone': 'ఫోన్ / వాట్సాప్', 'contact.office': 'కార్యాలయం', 'contact.hours': 'పని వేళలు', 'contact.hoursv': 'సోమ – శని · ఉ. 9:00 – సా. 7:00',
 
     'form.title': 'విచారణ పంపండి', 'form.step1': 'మీ వివరాలు', 'form.step2': 'చెరువు వివరాలు',
@@ -190,11 +183,11 @@ const I18N = {
     'form.message': 'సందేశం', 'form.msgph': 'మేము తెలుసుకోవలసిన ఇతర విషయాలు…',
     'form.next': 'తర్వాత: చెరువు వివరాలు', 'form.back': 'వెనుకకు', 'form.send': 'వాట్సాప్‌లో పంపండి', 'form.call': 'లేదా ఇప్పుడే కాల్ చేయండి',
     'err.name': 'దయచేసి మీ పేరు నమోదు చేయండి.', 'err.phone': 'దయచేసి సరైన 10 అంకెల మొబైల్ నంబర్ నమోదు చేయండి.',
-    'form.ok': 'మీ విచారణ సిద్ధం — మా వాట్సాప్ గ్రూప్‌కు పంపండి.',
-    'form.privacy': 'మీ సందేశం VM ఆక్వా సొల్యూషన్స్ వాట్సాప్ గ్రూప్‌లో పంచుకోబడుతుంది.',
+    'form.ok': 'మీ విచారణతో వాట్సాప్ తెరుచుకుంది — Send నొక్కండి.',
+    'form.privacy': 'మీ విచారణ వాట్సాప్‌లో VM ఆక్వా సొల్యూషన్స్‌కు (+91 96667 54456) వెళ్తుంది.',
 
     'rv.title': 'మీ అనుభవం పంచుకోండి', 'rv.name': 'మీ పేరు', 'rv.place': 'గ్రామం / జిల్లా', 'rv.rating': 'మీ రేటింగ్',
-    'rv.product': 'వాడిన ఉత్పత్తి', 'rv.text': 'మీ సమీక్ష', 'rv.send': 'వాట్సాప్ గ్రూప్‌కు సమీక్ష పంపండి',
+    'rv.product': 'వాడిన ఉత్పత్తి', 'rv.text': 'మీ సమీక్ష', 'rv.send': 'వాట్సాప్‌లో సమీక్ష పంపండి',
     'rv.note': 'సమీక్షలు వెబ్‌సైట్‌లో కనిపించే ముందు మా బృందం పరిశీలిస్తుంది.',
 
     'how.kicker': 'ఇది ఎలా పనిచేస్తుంది',
@@ -208,13 +201,6 @@ const I18N = {
     'footer.tag': 'తీర ఆంధ్రప్రదేశ్ రైతుల కోసం నాణ్యమైన ఆక్వా ఉత్పత్తులు.',
     'footer.products': 'ఉత్పత్తులు', 'footer.links': 'త్వరిత లింకులు', 'footer.contact': 'సంప్రదించండి',
     'footer.note': 'మోతాదులు సాధారణ మార్గదర్శకం మాత్రమే — మీ చెరువుకు ఆక్వా కన్సల్టెంట్‌ను సంప్రదించండి.',
-    'wa.title': 'మా వాట్సాప్ గ్రూప్‌కు మీ సందేశం పంపండి', 'wa.sub': 'వెబ్‌సైట్ సందేశాలన్నింటికీ మా VM ఆక్వా సొల్యూషన్స్ వాట్సాప్ గ్రూప్‌లో సమాధానం ఇస్తాము.',
-    'wa.preview': 'మీ సందేశం', 'wa.copy': 'కాపీ', 'wa.copiedShort': 'కాపీ అయింది',
-    'wa.s1': 'క్రింది ఆకుపచ్చ బటన్ నొక్కండి — మీ సందేశం కాపీ అవుతుంది.',
-    'wa.s2': 'మా వాట్సాప్ గ్రూప్ తెరుచుకుంటుంది (మొదటిసారి “Join” నొక్కండి).',
-    'wa.s3': 'మెసేజ్ బాక్స్‌పై నొక్కి “Paste” ఎంచుకుని, Send నొక్కండి.',
-    'wa.group': 'మా వాట్సాప్ గ్రూప్‌కు పంపండి', 'wa.groupNote': 'మీ సందేశాన్ని కాపీ చేసి గ్రూప్‌ను తెరుస్తుంది.',
-    'wa.copied': 'సందేశం కాపీ అయింది! గ్రూప్‌లో పేస్ట్ చేసి పంపండి.',
     'contact.group': 'వాట్సాప్ గ్రూప్', 'contact.groupd': 'మా రైతుల గ్రూప్‌లో చేరండి',
     'wa.hello': 'నమస్కారం VM ఆక్వా సొల్యూషన్స్'
   }
