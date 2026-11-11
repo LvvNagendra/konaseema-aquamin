@@ -430,8 +430,10 @@
   $('#waGroupBtn').addEventListener('click', () => {
     const ok = copySync(waText);
     $('#waGroupNote').textContent = ok ? '✓ ' + t('wa.copied') : t('wa.groupNote');
-    const win = window.open(WA_GROUP, '_blank', 'noopener');
-    if (!win) setTimeout(() => { location.href = WA_GROUP; }, 600);
+    // open the group in a new tab; only if the browser blocked it, open it in this tab instead
+    const win = window.open(WA_GROUP, '_blank');
+    if (win) { try { win.opener = null; } catch { /* cross-origin */ } }
+    else location.href = WA_GROUP;
   });
   $('#waCopyBtn').addEventListener('click', () => {
     $('#waCopyBtn').textContent = copySync(waText) ? '✓ ' + t('wa.copiedShort') : t('wa.copy');
