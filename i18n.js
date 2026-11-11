@@ -100,6 +100,11 @@ const I18N = {
     'footer.tag': 'Quality aquaculture inputs for the farmers of coastal Andhra Pradesh.',
     'footer.products': 'Products', 'footer.links': 'Quick links', 'footer.contact': 'Contact',
     'footer.note': 'Dosages are general guidance — consult an aqua consultant for your pond.',
+    'wa.title': 'Send your message on WhatsApp', 'wa.sub': 'Choose a number. To reach more than one, tap each one.',
+    'wa.preview': 'Your message', 'wa.copy': 'Copy', 'wa.copiedShort': 'Copied', 'wa.or': 'or',
+    'wa.group': 'Share in our WhatsApp group', 'wa.groupNote': 'Your message will be copied — paste it in the group and send.',
+    'wa.copied': 'Message copied! Paste it in the group and send.', 'wa.opened': 'Opened',
+    'contact.group': 'WHATSAPP GROUP', 'contact.groupd': 'Join our farmers group',
     'wa.hello': 'Hello VM Aqua Solutions'
   },
 
@@ -200,6 +205,11 @@ const I18N = {
     'footer.tag': 'తీర ఆంధ్రప్రదేశ్ రైతుల కోసం నాణ్యమైన ఆక్వా ఉత్పత్తులు.',
     'footer.products': 'ఉత్పత్తులు', 'footer.links': 'త్వరిత లింకులు', 'footer.contact': 'సంప్రదించండి',
     'footer.note': 'మోతాదులు సాధారణ మార్గదర్శకం మాత్రమే — మీ చెరువుకు ఆక్వా కన్సల్టెంట్‌ను సంప్రదించండి.',
+    'wa.title': 'వాట్సాప్‌లో మీ సందేశం పంపండి', 'wa.sub': 'ఒక నంబర్ ఎంచుకోండి. ఎక్కువ నంబర్లకు పంపడానికి ప్రతిదానిపై నొక్కండి.',
+    'wa.preview': 'మీ సందేశం', 'wa.copy': 'కాపీ', 'wa.copiedShort': 'కాపీ అయింది', 'wa.or': 'లేదా',
+    'wa.group': 'మా వాట్సాప్ గ్రూప్‌లో పంచుకోండి', 'wa.groupNote': 'మీ సందేశం కాపీ అవుతుంది — గ్రూప్‌లో పేస్ట్ చేసి పంపండి.',
+    'wa.copied': 'సందేశం కాపీ అయింది! గ్రూప్‌లో పేస్ట్ చేసి పంపండి.', 'wa.opened': 'తెరవబడింది',
+    'contact.group': 'వాట్సాప్ గ్రూప్', 'contact.groupd': 'మా రైతుల గ్రూప్‌లో చేరండి',
     'wa.hello': 'నమస్కారం VM ఆక్వా సొల్యూషన్స్'
   }
 };

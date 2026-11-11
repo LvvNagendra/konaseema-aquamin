@@ -1,6 +1,13 @@
 (() => {
   'use strict';
-  const WA = '919966590280';
+  /* ---- WhatsApp contacts: every enquiry can go to these numbers + the group ---- */
+  const WA_NUMBERS = [
+    { num: '919966590280', label: '+91 99665 90280' },
+    { num: '919666754456', label: '+91 96667 54456' },
+    { num: '919948043969', label: '+91 99480 43969' }
+  ];
+  const WA_GROUP = 'https://chat.whatsapp.com/ISWdOqMF14p33Z9w6kcQQ2';
+  const WA = WA_NUMBERS[0].num;
   const $ = (s, el = document) => el.querySelector(s);
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
   const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -398,6 +405,54 @@
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModals(); });
 
   /* =========================================================
+     WhatsApp chooser: send the same message to any of the 3 numbers, or share it in the group
+     ========================================================= */
+  const waModal = $('#waModal');
+  let waText = '';
+  function openWaChooser(text) {
+    waText = text || `${t('wa.hello')},\nI would like to know more about your products.`;
+    $('#waPreview').textContent = waText;
+    $('#waNumbers').innerHTML = WA_NUMBERS.map((n, i) => `
+      <a class="wa-choice" href="https://wa.me/${n.num}?text=${encodeURIComponent(waText)}" target="_blank" rel="noopener" data-wa-choice>
+        <span class="wa-choice-ic"><svg viewBox="0 0 32 32" aria-hidden="true"><use href="#wa-icon"/></svg></span>
+        <span class="wa-choice-txt"><b>${esc(n.label)}</b><small>WhatsApp ${i + 1}</small></span>
+        <span class="wa-choice-go" aria-hidden="true">→</span>
+      </a>`).join('');
+    $('#waGroupNote').textContent = t('wa.groupNote');
+    closeModals();
+    openModal(waModal);
+  }
+  waModal.addEventListener('click', e => {
+    const c = e.target.closest('[data-wa-choice]');
+    if (c) { c.classList.add('done'); c.querySelector('.wa-choice-go').textContent = '✓ ' + t('wa.opened'); }
+  });
+  async function copyText(text) {
+    try { await navigator.clipboard.writeText(text); return true; } catch { /* fallback below */ }
+    const ta = document.createElement('textarea'); ta.value = text; ta.setAttribute('readonly', '');
+    ta.style.cssText = 'position:fixed;opacity:0'; document.body.appendChild(ta); ta.select();
+    let ok = false; try { ok = document.execCommand('copy'); } catch { ok = false; }
+    ta.remove(); return ok;
+  }
+  $('#waGroupBtn').addEventListener('click', async () => {
+    const win = window.open(WA_GROUP, '_blank', 'noopener');   // open first so pop-up blockers allow it
+    const ok = await copyText(waText);
+    $('#waGroupNote').textContent = ok ? '✓ ' + t('wa.copied') : t('wa.groupNote');
+    if (!win) location.href = WA_GROUP;
+  });
+  $('#waCopyBtn').addEventListener('click', async () => {
+    const ok = await copyText(waText);
+    $('#waCopyBtn').textContent = ok ? '✓ ' + t('wa.copiedShort') : t('wa.copy');
+  });
+  // Every WhatsApp link on the page opens the chooser instead of a single number
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[href^="https://wa.me/"]');
+    if (!a || a.hasAttribute('data-wa-choice')) return;
+    e.preventDefault();
+    const q = a.getAttribute('href').split('?text=')[1];
+    openWaChooser(q ? decodeURIComponent(q) : '');
+  }, true);
+
+  /* =========================================================
      Enquiry form (2 steps -> WhatsApp)
      ========================================================= */
   const form = $('#enquiryForm');
@@ -439,7 +494,7 @@
       F.message.value.trim() && `Message: ${F.message.value.trim()}`,
       `Preferred language: ${lang === 'te' ? 'Telugu' : 'English'}`
     ].filter(Boolean);
-    window.open(waLink(lines.join('\n')), '_blank', 'noopener');
+    openWaChooser(lines.join('\n'));
     const ok = $('#formOk'); ok.textContent = '✓ ' + t('form.ok'); ok.hidden = false;
   });
   $$('[data-type-link]').forEach(a => a.addEventListener('click', () => {
@@ -456,8 +511,8 @@
     $('#rvErr').textContent = '';
     const msg = [`*New farmer review — website*`, `Name: ${R.name.value.trim()}`, R.place.value.trim() && `Place: ${R.place.value.trim()}`,
       `Rating: ${'★'.repeat(+R.rating.value)} (${R.rating.value}/5)`, R.product.value && `Product: ${R.product.value}`, `Review: ${R.text.value.trim()}`].filter(Boolean).join('\n');
-    window.open(waLink(msg), '_blank', 'noopener');
-    closeModals(); e.target.reset();
+    e.target.reset();
+    openWaChooser(msg);
   });
 
   /* =========================================================
