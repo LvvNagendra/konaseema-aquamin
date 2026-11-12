@@ -17,9 +17,10 @@ Front-end only, static website. Works on desktop, tablet and mobile. No build st
 - 2-step enquiry form (enquiry type, name, mobile with validation, village/district, species, acres, DOC, pond problems, product). It opens WhatsApp with all details filled in.
 
 ## WhatsApp numbers & group
-Numbers shown on the site (in this order): 1) +91 96667 54456, 2) +91 99480 43969, 3) +91 99665 90280 — for calls.
-Every WhatsApp button (enquiry form, product buttons, calculator, reviews, floating button) opens a WhatsApp chat
-to number 1 (+91 96667 54456) with the message already typed — the visitor only taps Send.
+Numbers shown on the site (in this order): +91 96667 54456, +91 99480 43969, +91 99665 90280.
+Phone calls: the top bar and "Call us now" link call +91 96667 54456 (also printed on the drawn pack labels).
+WhatsApp: every WhatsApp button (enquiry form, product buttons, calculator, reviews, floating button) opens a chat
+to +91 99665 90280 with the message already typed — the visitor only taps Send.
 The "Join our farmers group" links (contact section, footer) open https://chat.whatsapp.com/ISWdOqMF14p33Z9w6kcQQ2.
 Change them in `WA_NUMBERS` / `WA_GROUP` at the top of `app.js` and in `index.html`.
 

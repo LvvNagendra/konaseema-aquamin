@@ -83,7 +83,7 @@ const I18N = {
     'form.next': 'Next: pond details', 'form.back': 'Back', 'form.send': 'Send on WhatsApp', 'form.call': 'Or call us now',
     'err.name': 'Please enter your name.', 'err.phone': 'Please enter a valid 10-digit mobile number.',
     'form.ok': 'WhatsApp opened with your enquiry — just tap Send.',
-    'form.privacy': 'Your enquiry goes to VM Aqua Solutions on WhatsApp (+91 96667 54456).',
+    'form.privacy': 'Your enquiry goes to VM Aqua Solutions on WhatsApp (+91 99665 90280).',
 
     'rv.title': 'Share your experience', 'rv.name': 'Your name', 'rv.place': 'Village / District', 'rv.rating': 'Your rating',
     'rv.product': 'Product used', 'rv.text': 'Your review', 'rv.send': 'Send review on WhatsApp',
@@ -184,7 +184,7 @@ const I18N = {
     'form.next': 'తర్వాత: చెరువు వివరాలు', 'form.back': 'వెనుకకు', 'form.send': 'వాట్సాప్‌లో పంపండి', 'form.call': 'లేదా ఇప్పుడే కాల్ చేయండి',
     'err.name': 'దయచేసి మీ పేరు నమోదు చేయండి.', 'err.phone': 'దయచేసి సరైన 10 అంకెల మొబైల్ నంబర్ నమోదు చేయండి.',
     'form.ok': 'మీ విచారణతో వాట్సాప్ తెరుచుకుంది — Send నొక్కండి.',
-    'form.privacy': 'మీ విచారణ వాట్సాప్‌లో VM ఆక్వా సొల్యూషన్స్‌కు (+91 96667 54456) వెళ్తుంది.',
+    'form.privacy': 'మీ విచారణ వాట్సాప్‌లో VM ఆక్వా సొల్యూషన్స్‌కు (+91 99665 90280) వెళ్తుంది.',
 
     'rv.title': 'మీ అనుభవం పంచుకోండి', 'rv.name': 'మీ పేరు', 'rv.place': 'గ్రామం / జిల్లా', 'rv.rating': 'మీ రేటింగ్',
     'rv.product': 'వాడిన ఉత్పత్తి', 'rv.text': 'మీ సమీక్ష', 'rv.send': 'వాట్సాప్‌లో సమీక్ష పంపండి',

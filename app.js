@@ -1,17 +1,17 @@
 (() => {
   'use strict';
-  /* ---- Contact numbers (shown in this order). Website WhatsApp messages go to number 1. ---- */
+  /* ---- Contact numbers (shown in this order). WhatsApp → 99665 90280, calls → 96667 54456. ---- */
   const WA_NUMBERS = [
     { num: '919666754456', label: '+91 96667 54456' },
     { num: '919948043969', label: '+91 99480 43969' },
     { num: '919966590280', label: '+91 99665 90280' }
   ];
   const WA_GROUP = 'https://chat.whatsapp.com/ISWdOqMF14p33Z9w6kcQQ2';
-  const WA = WA_NUMBERS[0].num;
+  const WA = '919966590280';        // all website WhatsApp messages go to +91 99665 90280 (calls go to +91 96667 54456)
   const $ = (s, el = document) => el.querySelector(s);
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
   const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-  const waLink = text => `https://wa.me/${WA}?text=${encodeURIComponent(text)}`;   // opens a chat to WhatsApp number 1 with the message typed in
+  const waLink = text => `https://wa.me/${WA}?text=${encodeURIComponent(text)}`;   // opens a WhatsApp chat to +91 99665 90280 with the message typed in
   const byId = id => PRODUCTS.find(p => p.id === id);
 
   PRODUCTS.sort((p, q) => (q.range ? 1 : 0) - (p.range ? 1 : 0));
@@ -404,7 +404,7 @@
   });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModals(); });
 
-  /* ---------- WhatsApp: open a chat to number 1 with the message already typed ---------- */
+  /* ---------- WhatsApp: open a chat to +91 99665 90280 with the message already typed ---------- */
   function sendWhatsApp(text) {
     const url = waLink(text || `${t('wa.hello')},\nI would like to know more about your products.`);
     const win = window.open(url, '_blank');
