@@ -54,6 +54,7 @@ const I18N = {
     'brand.title': 'Our aquaculture <em>product range</em>',
     'brand.desc': 'Five focused products for pond health, faster growth, water quality, disease resistance and higher yield. Tap a pack to see its details.',
     'brand.cta': 'Enquire about the range', 'brand.cta2': 'Become a dealer',
+    'avail.title': 'Available packings', 'avail.sub': 'Pack sizes in stock — tap Order to send your order on WhatsApp.', 'avail.order': 'Order',
 
     'rev.kicker': 'FARMER REVIEWS',
     'rev.title': 'What <em>farmers say</em>',
@@ -83,7 +84,7 @@ const I18N = {
     'form.next': 'Next: pond details', 'form.back': 'Back', 'form.send': 'Send on WhatsApp', 'form.call': 'Or call us now',
     'err.name': 'Please enter your name.', 'err.phone': 'Please enter a valid 10-digit mobile number.',
     'form.ok': 'WhatsApp opened with your enquiry — just tap Send.',
-    'form.privacy': 'Your enquiry goes to VM Aqua Solutions on WhatsApp (+91 99665 90280).',
+    'form.privacy': 'Your enquiry goes to VM Aqua Solutions on WhatsApp (+91 96667 54456).',
 
     'rv.title': 'Share your experience', 'rv.name': 'Your name', 'rv.place': 'Village / District', 'rv.rating': 'Your rating',
     'rv.product': 'Product used', 'rv.text': 'Your review', 'rv.send': 'Send review on WhatsApp',
@@ -155,6 +156,7 @@ const I18N = {
     'brand.title': 'మా ఆక్వాకల్చర్ <em>ఉత్పత్తుల శ్రేణి</em>',
     'brand.desc': 'చెరువు ఆరోగ్యం, వేగవంతమైన పెరుగుదల, నీటి నాణ్యత, వ్యాధి నిరోధకత మరియు అధిక దిగుబడి కోసం ఐదు ప్రత్యేక ఉత్పత్తులు. వివరాల కోసం ప్యాక్‌పై నొక్కండి.',
     'brand.cta': 'శ్రేణి గురించి విచారించండి', 'brand.cta2': 'డీలర్ అవ్వండి',
+    'avail.title': 'లభ్యమయ్యే ప్యాకింగ్‌లు', 'avail.sub': 'స్టాక్‌లో ఉన్న ప్యాక్ సైజులు — వాట్సాప్‌లో ఆర్డర్ పంపడానికి ఆర్డర్ నొక్కండి.', 'avail.order': 'ఆర్డర్',
 
     'rev.kicker': 'రైతుల అభిప్రాయాలు',
     'rev.title': '<em>రైతులు</em> ఏమంటున్నారు',
@@ -184,7 +186,7 @@ const I18N = {
     'form.next': 'తర్వాత: చెరువు వివరాలు', 'form.back': 'వెనుకకు', 'form.send': 'వాట్సాప్‌లో పంపండి', 'form.call': 'లేదా ఇప్పుడే కాల్ చేయండి',
     'err.name': 'దయచేసి మీ పేరు నమోదు చేయండి.', 'err.phone': 'దయచేసి సరైన 10 అంకెల మొబైల్ నంబర్ నమోదు చేయండి.',
     'form.ok': 'మీ విచారణతో వాట్సాప్ తెరుచుకుంది — Send నొక్కండి.',
-    'form.privacy': 'మీ విచారణ వాట్సాప్‌లో VM ఆక్వా సొల్యూషన్స్‌కు (+91 99665 90280) వెళ్తుంది.',
+    'form.privacy': 'మీ విచారణ వాట్సాప్‌లో VM ఆక్వా సొల్యూషన్స్‌కు (+91 96667 54456) వెళ్తుంది.',
 
     'rv.title': 'మీ అనుభవం పంచుకోండి', 'rv.name': 'మీ పేరు', 'rv.place': 'గ్రామం / జిల్లా', 'rv.rating': 'మీ రేటింగ్',
     'rv.product': 'వాడిన ఉత్పత్తి', 'rv.text': 'మీ సమీక్ష', 'rv.send': 'వాట్సాప్‌లో సమీక్ష పంపండి',

@@ -35,7 +35,7 @@ const PRODUCTS = [
       'Regular use: 5 Ltrs / Acre',
       'Toxic gas conditions / high Vibrio loads / stress / low plankton: 10 Ltrs / Acre on the 1st day, followed by 5 Ltrs / Acre after 3 days'
     ],
-    pack: '5 Kg',
+    pack: '20 Ltrs',
     te: {
       tag: 'చెరువు స్టెబిలైజర్ & నీటి నాణ్యత మెరుగుదల',
       compNote: 'కనీస బలం: 20 బిలియన్ CFU/ml',
@@ -74,7 +74,7 @@ const PRODUCTS = [
     ],
     benefits: ['Improves growth', 'Increases antibody production', 'Regeneration of red blood cells', 'Synthesis of Vitamin B12'],
     dosage: ['10 kg / Acre or as advised by an aqua consultant'],
-    pack: '10 Kg, 25 Kg',
+    pack: '10 Kg, 20 Kg',
     te: {
       tag: 'సమతుల్య మినరల్ మిశ్రమం',
       benefits: ['పెరుగుదలను మెరుగుపరుస్తుంది', 'యాంటీబాడీ ఉత్పత్తిని పెంచుతుంది', 'ఎర్ర రక్త కణాల పునరుత్పత్తి', 'విటమిన్ B12 సంశ్లేషణ'],
@@ -105,7 +105,7 @@ const PRODUCTS = [
     compNote: 'Grade & particle size: please contact us',
     benefits: ['Adsorbs ammonia (NH₃)', 'Controls toxic gases (H₂S)', 'Improves water clarity', 'Maintains pond stability'],
     dosage: ['As advised by our aqua consultant — contact us for dosage'],
-    pack: '1 Kg',
+    pack: '10 Kg',
     te: {
       tag: 'సహజ జియోలైట్ · నీటి శుద్ధి',
       compNote: 'గ్రేడ్ & కణ పరిమాణం కోసం మమ్మల్ని సంప్రదించండి',
@@ -114,15 +114,15 @@ const PRODUCTS = [
     }
   },
   {
-    id: 'aquagel', name: 'AquaGel', cat: 'feed', tag: 'Mineral & Electrolyte Gel · Stress Reliever', range: true,
+    id: 'aquagel', name: 'AquaGel', cat: 'feed', tag: 'Feed Supplement Gel · Mineral & Electrolyte', range: true,
     img: 'assets/pack-aquagel.webp',
     comp: ['Minerals', 'Electrolytes', 'Gel base'],
     compNote: 'Full composition: please contact us',
     benefits: ['Quick energy', 'Reduces stress', 'Supports moulting'],
     dosage: ['As advised by our aqua consultant — contact us for dosage'],
-    pack: '5 Kg',
+    pack: '5 Ltrs',
     te: {
-      tag: 'మినరల్ & ఎలక్ట్రోలైట్ జెల్ · ఒత్తిడి నివారణ',
+      tag: 'ఫీడ్ సప్లిమెంట్ జెల్ · మినరల్ & ఎలక్ట్రోలైట్',
       compNote: 'పూర్తి కంపోజిషన్ కోసం మమ్మల్ని సంప్రదించండి',
       benefits: ['త్వరిత శక్తి', 'ఒత్తిడిని తగ్గిస్తుంది', 'మౌల్టింగ్‌కు సహాయపడుతుంది'],
       dosage: ['మా ఆక్వా కన్సల్టెంట్ సలహా మేరకు — మోతాదు కోసం సంప్రదించండి']
@@ -470,4 +470,14 @@ const PROBLEMS = [
   { id: 'gut',      en: 'Gut health / feed intake', te: 'పేగు ఆరోగ్యం / మేత తీసుకోవడం',   products: ['gut-care', 'bioforte', 'gel-bond'] },
   { id: 'red',      en: 'Red disease / tail rot',   te: 'ఎర్ర వ్యాధి / తోక కుళ్ళు',       products: ['redvin', 'all-clear', 'micro-shield'] },
   { id: 'lice',     en: 'Fish lice / parasites',    te: 'చేప పేను / పరాన్నజీవులు',      products: ['lice-care', 'bio-gold'] }
+];
+
+/* ---------- Available packings (shown in the "Available packings" panel) ---------- */
+const PACKINGS = [
+  { id: 'min-power',   en: 'Minerals',            te: 'మినరల్స్',            size: '20 kg' },
+  { id: 'min-power',   en: 'Minerals',            te: 'మినరల్స్',            size: '10 kg' },
+  { id: 'pondbiotic',  en: 'Probiotic',           te: 'ప్రోబయోటిక్',          size: '1 kg' },
+  { id: 'pondzeolite', en: 'Zeolite',             te: 'జియోలైట్',            size: '10 kg' },
+  { id: 'pro-ps',      en: 'Super PS',            te: 'సూపర్ PS',             size: '20 Ltrs' },
+  { id: 'aquagel',     en: 'Feed Supplement Gel', te: 'ఫీడ్ సప్లిమెంట్ జెల్', size: '5 Ltrs' }
 ];

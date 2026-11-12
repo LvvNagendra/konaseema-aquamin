@@ -24,6 +24,10 @@ to +91 99665 90280 with the message already typed — the visitor only taps Send
 The "Join our farmers group" links (contact section, footer) open https://chat.whatsapp.com/ISWdOqMF14p33Z9w6kcQQ2.
 Change them in `WA_NUMBERS` / `WA_GROUP` at the top of `app.js` and in `index.html`.
 
+## Available packings
+Edit `PACKINGS` at the end of `products.js` (product, label in English/Telugu, pack size).
+Pack sizes on the product pages come from each product's `pack` field.
+
 ## Files
 | File | What to edit |
 |---|---|
